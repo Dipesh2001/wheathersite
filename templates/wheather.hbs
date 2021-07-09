@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+    {{>links}}
+</head>
+<body>
+	{{>navbar}}
+		<div class="wcard d-flex justify-content-center align-items-center flex-column">
+			<h1 class="text-center text-danger">Search the conditions by City Name </h1>
+			<input type="text" placeholder="Enter the City Name" id="srch" class="srch">
+			<button class="sbtn">Find</button>	
+			<div class="card my-5 bg-dark">
+				<div class="d-flex justify-content-between py-5 px-3 bg-info" style="border-radius: 5px 5px 0 0;">
+					<h5 class="myday"></h5>
+					<h5 class="mydate"></h5>
+				</div>
+				<h1 class="text-secondary px-2 my-2 cname">Get Output Here</h1>
+				<div class="temp text-white d-flex justify-content-between my-5 mx-5">
+					<h4 class="rtemp"> </h4>
+					<h1 class="ltemp"><img src="" class="img-fluid myimg" style="height: 50px;width:50px;" alt=""></h1>
+				</div>
+			</div>
+		</div>
+	{{>footer}}
+	<script>
+		const sbtn = document.querySelector('.sbtn');
+		const cname = document.querySelector('.cname');
+		const rtemp = document.querySelector('.rtemp');
+		const myimg = document.querySelector('.myimg');
+		const myday = document.querySelector('.myday');
+		const mydate = document.querySelector('.mydate');
+
+		const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Sadturday"]
+		const date = new Date();
+		let today = days[date.getDay()];
+		myday.innerText=today;
+
+		const months = ["Jan","Fab","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+		let month = months[date.getMonth()];
+
+		mydate.innerText = date.getDate() + "," + month;
+
+        const gotit = async ()=>{
+        	// e.preventDefault();
+        	const inp = document.querySelector('.srch').value;
+        	// console.log(inp);
+        	if(inp==""){
+        		alert("plz fill city name");
+        	}else{
+        		try{
+					let url = `http://api.weatherapi.com/v1/current.json?key=7b5c5d8f0437490a898120824210307&q=${inp}`;
+					const response = await fetch(url);
+					const jsdata = await response.json();
+					 console.log(jsdata);
+				  // alert(jsdata);
+				  cname.innerText = `${jsdata.location.name},${jsdata.location.country}`;
+				    // alert(jsdata);
+				    rtemp.innerHTML = `Temp:${jsdata.current.temp_c} <sup>&deg;</sup> WindSpeed:${jsdata.current.wind_kph}Kph.`;
+				 myimg.src = `${jsdata.current.condition.icon}`;  
+        		}catch(err){
+        			alert(err);
+        			// console.log()
+        			cname.innerText = `${inp} is not a valid City`;
+        		}
+        	}	
+        }
+		sbtn.addEventListener('click',gotit);
+	</script>
+</body>
+</html>

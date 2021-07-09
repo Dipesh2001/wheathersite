@@ -1,0 +1,110 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
+
+html {
+  font-size: 62.5%; }
+
+.btn {
+  border-bottom: 2px solid transparent;
+  border-radius: 5px;
+  box-shadow: 2px 3px 4px #3498db;
+  font-size: 1.5rem;
+  color: #3494db; }
+  .btn:hover {
+    border-bottom: 2px solid #3498db; }
+
+nav {
+  background: #349589 !important;
+  height: auto;
+  width: 100%; }
+  nav div ul {
+    margin-left: auto;
+    padding-right: 3rem; }
+    nav div ul li a {
+      font-size: 2rem;
+      padding: 1.5rem;
+      margin: 0 1.5rem;
+      color: aqua; }
+  nav .navbar-brand {
+    font-size: 3rem;
+    font-weight: 500;
+    padding: .7rem;
+    color: lightgreen;
+    margin-left: 2rem; }
+
+.main {
+  height: 85vh;
+  width: 100%;
+  background: whitesmoke; }
+  .main div {
+    height: 100%;
+    width: 100%; }
+    .main div h4 {
+      text-align: left;
+      font-size: 2rem; }
+    .main div h1 {
+      font-size: 3.4rem;
+      font-weight: 600; }
+      .main div h1 span {
+        color: #3498db; }
+        .main div h1 span:hover {
+          color: aqua; }
+
+.wcard {
+  height: 80vh;
+  width: 100%;
+  background: whitesmoke; }
+  .wcard .card {
+    height: 40vh;
+    width: 40vw;
+    border-radius: 1rem;
+    color: white;
+    font-size: 2.5rem;
+    margin: 0 auto; }
+    .wcard .card .temp{
+      padding-top: 2rem;
+    }
+    .wcard .card .temp .rtemp {
+      font-size: 3rem; }
+    .wcard .card .temp .ltemp {
+      font-size: 3.3rem; }
+  .wcard input {
+    position: relative; }
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%; }
+
+input {
+  position: relative;
+  padding: 1.5rem 2rem;
+  background: rgba(0, 0, 0, 0.6);
+  width: 80%;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  font-size: 2rem;
+  color: #049303; }
+
+.sbtn {
+  position: absolute;
+  background: #3498db;
+  border-radius: 1rem;
+  border: none;
+  font-size: 2rem;
+  color: aqua;
+  padding: .5rem 1.3rem;
+  right: 12%;
+  top: 26%;
+  outline: none;
+  box-shadow: none;
+  margin: auto 0; }
+
+::placeholder {
+  color: lightgrey;
+  font-size: 2rem; }
+
+/*# sourceMappingURL=style.css.map */

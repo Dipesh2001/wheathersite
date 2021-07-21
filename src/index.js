@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const hbs = require('hbs');
+const port = process.env.PORT || 8000;
 // const hbsr = require('hbs');
   //for static website path
   const staticpath = path.join('__dirname',"../public"); 
@@ -41,6 +42,6 @@ app.get('/about',(req,res)=>{
 // 	res.render('err');
 // })
 
-app.listen(3000,()=>{
-	console.log("listenng to port");
+app.listen(port,()=>{
+	console.log("listenng to port" + port);
 })
